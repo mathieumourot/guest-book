@@ -1,0 +1,48 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: guest-book
+  labels:
+    app: guest-book
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 9000
+      targetPort: 9000
+      protocol: TCP
+  selector:
+    app: guest-book
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: guest-book
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guest-book
+  template:
+    metadata:
+      labels:
+        app: guest-book
+    spec:
+      containers:
+      - name: guest-book
+        image: kayvank/guest-book:v1.00123
+        ports:
+        - containerPort: 9000
+        livenessProbe:
+          httpGet:
+            path: /status
+            port: 9000
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /status
+            port: 9000
+          initialDelaySeconds: 5
+          periodSeconds: 3
