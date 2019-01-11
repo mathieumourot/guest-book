@@ -1,0 +1,18 @@
+##
+## ignore adding these to image
+## 
+.git
+Dockerfile
+.gitignore
+README.md
+.envrc
+logs/
+target/
+project/target
+project/project
+*.log
+*.sh
+GPATH
+GRTAGS
+GTAGS
+.tags

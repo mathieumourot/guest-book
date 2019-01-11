@@ -1,0 +1,19 @@
+target/
+project/target
+project/project
+*.log
+*.pid
+##
+## emacs & ensime
+##
+.#*
+*.swp
+.history
+.cache
+native/
+.envrc
+GPATH
+GRTAGS
+GTAGS
+.tags
+
