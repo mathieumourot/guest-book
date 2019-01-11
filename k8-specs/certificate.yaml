@@ -1,0 +1,23 @@
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: q2io-llc
+spec:
+  secretName: tls-letsencrypt-q2io-llc
+  commonName: q2io.com
+  dnsNames:
+    - guest-book.tk
+    - www.guest-book.tk
+
+  issuerRef:
+    name: q2io-llc
+    kind: ClusterIssuer
+  acme:
+    config:
+      - ingressClass: nginx
+        domains:
+          - guest-book.tk
+          - www.guest-book.tk
+
+
