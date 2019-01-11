@@ -35,8 +35,11 @@ From a separate terminal:
 *Note* this is a very simple integration test.
 
 ## Deployment
-gcp k8
-TBDS
+This application is deployed to k8 cluster using cloud-build 
+
+### DNS 
+- guess-book.tk
+- www.guess-book.tk
 
 ## Build With
 the project is build inside a docker container. This will allow us to simplify CI and take advantage of GCP cloud-biuld & deployment

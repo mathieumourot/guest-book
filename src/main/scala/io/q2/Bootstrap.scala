@@ -32,7 +32,7 @@ object Bootstrap extends IOApp {
       BlazeBuilder[F]
         .withIdleTimeout(Duration.Inf)
         .bindHttp(appCfg.getInt("api.http.port"), "0.0.0.0")
-        .mountService(corsHeader(statusApi),"/")
+        .mountService(corsHeader(statusApi),"")
         .mountService(corsHeader(logApi), s"/$apiVersion")
         .serve
     
