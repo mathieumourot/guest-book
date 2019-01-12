@@ -2,9 +2,7 @@ package io.q2.repo
 
 import io.q2.domain.Domain._
 import io.circe._, io.circe.parser._
-import io.circe.generic.auto._
-import io.circe.syntax._
-
+import io.q2.domain.protocol.Protocol._
 
 object GuestBookLog {
 //TODO impl Data store for next iteration
@@ -25,7 +23,7 @@ class GuestBookLog {
    } yield(g)
      z match {
        case Right(r) ⇒
-         val newState= GuestBookState(r.name, r.message)
+         val newState= GuestBookState(GuestBook(r.name, r.message))
          state =safeAppenderMaxSize(state)(newState)
           Right(state.last)
       case Left(e) ⇒ 
