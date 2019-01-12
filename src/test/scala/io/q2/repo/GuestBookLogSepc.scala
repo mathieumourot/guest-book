@@ -2,9 +2,9 @@ package io.q2.repo
 
 import io.circe._
 import io.circe.parser._
-import io.circe.generic.auto._
 import io.circe.syntax._
 import io.q2.domain.Domain._
+import io.q2.domain.protocol.Protocol._
 import org.specs2._
 
 class GuestBookLogSpec extends Specification { def is = s2"""
@@ -50,7 +50,7 @@ class GuestBookLogSpec extends Specification { def is = s2"""
   val computed = guestBookLog.log
     (
       computed.size == 2 &&
-        computed(0).name == computed(1).name &&
+        computed(0).guestBook == computed(1).guestBook &&
         computed(0).timestamp != computed(1).timestamp
     ) === true
 

@@ -3,7 +3,6 @@ package io.q2.api
 import org.http4s.HttpRoutes
 import org.http4s.circe._
 import org.http4s.dsl.Http4sDsl
-import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.Json
 import cats.effect._
@@ -11,6 +10,7 @@ import io.q2.repo._
 import GuestBookLog._
 import com.typesafe.scalalogging.Logger
 import io.q2.domain.Domain._
+import io.q2.domain.protocol.Protocol._
 import org.http4s._
 
 class LogApi[F[_]: Sync](guestBookLog: GuestBookLog) extends Http4sDsl[F] {

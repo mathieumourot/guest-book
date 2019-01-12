@@ -21,8 +21,7 @@ case class GuestBook(
     message: String
 )
 case class GuestBookState(
-  name: String,
-  message: String,
+  guestBook: GuestBook,
   timestamp: String=
     ZonedDateTime.now( ZoneOffset.UTC )
       .format( DateTimeFormatter.ISO_INSTANT )
